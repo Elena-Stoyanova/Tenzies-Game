@@ -19,22 +19,6 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 - You can undo holding die by clicking/pressing it again.
 - Try to match the dice quickly with lowest amount of roll.
   
-### cob744787bccbb96b7742ce7c
-
-Quick start:
-
-```
-$ yarn # npm install
-$ yarn build # npm run build
-````
-
-### Development
-
-Run Webpack in watch-mode to continually compile the JavaScript as you work:
-
-```
-$ yarn watch # npm run watch
-```
 ## My process
 
 ### Built with
