@@ -5,6 +5,7 @@ import Die from "./Components/Die"
 import { nanoid } from "nanoid"
 import Confetti from "react-confetti"
 import Timer from "./Components/Timer"
+import logo from "./app-logo.png"
 
 export default function App() {
 
@@ -76,16 +77,20 @@ export default function App() {
 
     return (
         <main>
+            <img src={logo} className="app-logo" alt="logo" />
             {winTenzies && <Confetti />}
-            <h1 className="title">Tenzies</h1>
             <div className="dice-container">
                 {diceElements}
             </div>
-            <Timer
-                winTenzies={winTenzies}
-                resetTimer={resetTimer}
-            />
-            <h3>Rolls: {rollsCount}</h3>
+
+            <div className="score-container">
+                <Timer
+                    winTenzies={winTenzies}
+                    resetTimer={resetTimer}
+                />
+                <h3 className="rolls">Rolls: {rollsCount}</h3>
+            </div>
+
             <button
                 className="roll-dice--button"
                 onClick={rollDice}

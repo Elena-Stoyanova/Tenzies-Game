@@ -1,6 +1,6 @@
 import React from "react"
 import App from "./App"
-import logo from "./logo.png"
+import logo from "./IntroPage-logo.png"
 
 export default function FirstPage() {
   const [showGame, setShowGame] = React.useState(false)
@@ -24,13 +24,12 @@ export default function FirstPage() {
   return (
     <div>
       {showGame ? <App /> :
-        <div className="IntroPage">
-          <img src={logo} className="logo" alt="logo" width="350px" height="275px" />
-          <h1 className="IntroPage--tittle-1">Tenzies Game</h1>
-          <h2 className="IntroPage--tittle-2">Hello user from {city}!</h2>
-          <p className="IntroPage--instructions">Roll until all dice are the same.Click each die to freeze it <br />
+        <div className="introPage">
+          <img src={logo} className="logo" alt="logo" />
+          <h2 className="introPage--tittle">Hello user from {city}!</h2>
+          <p className="introPage--instructions">Roll until all dice are the same.Click each die to freeze it <br />
             at its current value between rolls.</p>
-          <button className="IntroPage--button" onClick={ClickHandler}>Start Game</button>
+          <button className="introPage--button" onClick={ClickHandler}>Start Game</button>
         </div>}
     </div>
   )
