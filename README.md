@@ -2,6 +2,8 @@
 
 Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 
+👉 https://celebrated-sfogliatella-429fb2.netlify.app 👈
+
 ## Table of contents
 
 - [Overview](#overview)
