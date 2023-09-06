@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
 export default function Footer() {
   return (
     <footer>
       <a
-        className="footer-link"
-        href="https://github.com/Elena-Stoyanova"
-        target="_blank"
-        rel="noreferrer noopener"
+        className='footer-link'
+        href='https://github.com/Elena-Stoyanova'
+        target='_blank'
+        rel='noreferrer noopener'
       >
-        <p id="name">Made by Elena Stoyanova</p>
+        <p id='name'>Made by Elena Stoyanova</p>
       </a>
     </footer>
-  )
+  );
 }
