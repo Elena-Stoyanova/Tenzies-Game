@@ -1,12 +1,10 @@
-import React from "react";
-import "./popup.css"
+import React from 'react';
+import './Popup.css';
 
-const Popup = props => {
+const Popup = (props) => {
   return (
-    <div className="popup-box">
-      <div className="box">
-        {props.content}
-      </div>
+    <div className='popup-box'>
+      <div className='box'>{props.content}</div>
     </div>
   );
 };

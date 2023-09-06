@@ -1,6 +1,6 @@
 import React from 'react';
-import '../app.css';
-import './die.css';
+import '../App.css';
+import './Die.css';
 import Die from './Die';
 import { nanoid } from 'nanoid';
 import Confetti from 'react-confetti';
