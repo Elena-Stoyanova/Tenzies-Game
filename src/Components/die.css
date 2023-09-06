@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  position: relative
+  position: relative;
 }
 
 .dot {
@@ -134,4 +134,16 @@
 .dot--6:last-child {
   bottom: 8px;
   right: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .die-face {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .dot {
+    max-width: 7px;
+    max-height: 7px;
+  }
 }

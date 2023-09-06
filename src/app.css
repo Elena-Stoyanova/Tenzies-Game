@@ -4,18 +4,27 @@
 
 body {
   margin: 0;
-  background-color: #0B2434;
-  padding: 20px;
+  background-color: #ffbf00;
+  padding: 30px;
   font-family: 'Karla', sans-serif;
 }
 
+.footer-link {
+  color: #0B2434;
+}
+
+#name {
+  margin: 70px 0;
+  text-align: end;
+}
+
 main,
-.introPage {
+.app {
   background-color: #F5F5F5;
-  height: 400px;
-  max-width: 800px;
+  height: 475px;
+  max-width: 700px;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -23,17 +32,13 @@ main,
   align-items: center;
 }
 
-.app-logo {
-  margin-bottom: 20px;
-}
-
-.introPage--tittle {
+.tittle {
   margin-bottom: 0px;
   margin-top: 20px;
   font-size: 22px;
 }
 
-.introPage--instructions {
+.instructions {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   margin-top: 0;
@@ -44,26 +49,67 @@ main,
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   gap: 20px;
-  margin-bottom: 20px;
-  background-color: pink;
 }
 
-.score-container {
+.time-container,
+.score-stats {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
   gap: 30px;
-  background-color: pink;
-  margin-bottom: 40px;
+}
+
+.time-container {
+  padding: 3px 11px;
+  border-radius: 5px;
+
+}
+
+.time {
+  width: 155px;
+}
+
+#spinning-rays {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  margin: auto;
+  width: 100%;
+  height: 100vh;
+  fill: rgb(80, 53, 255);
+  z-index: -1;
 }
 
 .time,
-.rolls {
+.rolls,
+.score-stats,
+.topScore,
+.top-time,
+.top-rolls,
+.score-heading {
   margin: 0px;
 }
 
+.score-heading {
+  text-align: center;
+  margin-bottom: 7px;
+  color: #190e63;
+}
+
+.top-time,
+.top-rolls {
+  color: #190e63
+}
+
+.topScore {
+  border-radius: 6px;
+  border-width: 3px;
+  border-color: #9e91f8;
+  border-style: dashed;
+}
+
 .roll-dice--button,
-.introPage--button {
+.app--button {
   height: 40px;
   width: 150px;
   border: none;
@@ -81,4 +127,23 @@ main,
 
 .roll-dice--button:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+@media only screen and (max-width: 600px) {
+  .tittle {
+    font-size: 18px;
+  }
+
+  .instructions {
+    font-size: 13px;
+  }
+
+  .logo {
+    max-width: 225px;
+    height: auto
+  }
+
+  #name {
+    margin: 30px 0;
+  }
 }
