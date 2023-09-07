@@ -18,24 +18,19 @@ export default function App() {
       });
   }, []);
 
-  function ClickHandler() {
-    setShowGame(true);
-  }
-
   return (
     <div>
       {showGame ? (
         <Game />
       ) : (
         <div className='app'>
-          <Background />
           <img src={logo} className='logo' alt='logo' />
-          <h2 className='tittle'>🎉 Hello user from {city}! 🎉</h2>
+          <h2 className='tittle'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
           <p className='instructions'>
             Roll until all dice are the same.Click each die to freeze it <br />
             at its current value between rolls.
           </p>
-          <button className='app--button' onClick={ClickHandler}>
+          <button className='app--button' onClick={() => setShowGame(true)}>
             Start Game
           </button>
         </div>

@@ -97,7 +97,6 @@ export default function Game() {
 
   return (
     <>
-      <Background />
       <main>
         {winTenzies && <Confetti width={windowWidth} height={windowHeight} />}
         <img src={logo} className='game-logo' alt='logo' />
