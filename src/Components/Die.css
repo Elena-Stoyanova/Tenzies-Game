@@ -147,3 +147,15 @@
     max-height: 7px;
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .die-face {
+    max-width: 35px;
+    max-height: 35px;
+  }
+
+  .dot {
+    max-width: 5px;
+    max-height: 5px;
+  }
+}
