@@ -18,6 +18,10 @@ export default function App() {
       });
   }, []);
 
+  function clickHandler() {
+    setShowGame(true);
+  }
+
   return (
     <div>
       {showGame ? (
@@ -30,7 +34,7 @@ export default function App() {
             Roll until all dice are the same.Click each die to freeze it <br />
             at its current value between rolls.
           </p>
-          <button className='app--button' onClick={() => setShowGame(true)}>
+          <button className='app--button' onClick={clickHandler}>
             Start Game
           </button>
         </div>
