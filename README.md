@@ -2,7 +2,7 @@
 
 Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 
-👉 https://celebrated-sfogliatella-429fb2.netlify.app 👈
+👉 elena-stoyanova-tenzies-game.netlify.app
 
 ## Table of contents
 
@@ -10,8 +10,8 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
   - [Instructions](#instructions)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
+
 ## Overview
 
 ### Instructions
@@ -20,7 +20,7 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 - Click each die to freeze it at its current value between rolls.
 - You can undo holding die by clicking/pressing it again.
 - Try to match the dice quickly with lowest amount of roll.
-  
+
 ## My process
 
 ### Built with
@@ -31,19 +31,11 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
 - React Confetti
-- React nano-id
-
-### Continued development
-
-- Update/improve the UI.
-
-- Add restart feature ✔
-
-- Change Initial theme based on user preference ✔
+- React custom hooks
 
 ### Useful resources
 
 - [Scrimba's react crash course](https://scrimba.com/learn/learnreact) - This project idea was taken from Scrimba's react course from where I've been learning React.
 - [stackOverFlow](https://stackoverflow.com/)
 - [Google](https://google.com)
-  
+- [YouTube](https://www.youtube.com/)
