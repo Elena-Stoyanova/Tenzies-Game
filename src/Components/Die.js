@@ -1,5 +1,5 @@
 import React from 'react';
-import { nanoid } from 'nanoid';
+import './Die.css';
 
 export default function Die(props) {
   const styles = {
@@ -10,7 +10,7 @@ export default function Die(props) {
     const dotsArray = [];
     for (let i = 1; i <= value; i++) {
       dotsArray.push(
-        <div className={`dot dot--${value}`} key={nanoid()}></div>
+        <div className={`dot dot--${value}`} key={Math.random()}></div>
       );
     }
     return dotsArray;

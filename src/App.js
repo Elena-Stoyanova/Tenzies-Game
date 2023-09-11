@@ -1,7 +1,7 @@
 import React from 'react';
 import Game from './Components/Game';
-import logo from './App-logo.png';
-import Background from './Background';
+import logo from './Images/App-logo.png';
+import Footer from './Components/Footer';
 
 export default function App() {
   const [showGame, setShowGame] = React.useState(false);
@@ -18,10 +18,6 @@ export default function App() {
       });
   }, []);
 
-  function clickHandler() {
-    setShowGame(true);
-  }
-
   return (
     <div>
       {showGame ? (
@@ -29,16 +25,17 @@ export default function App() {
       ) : (
         <div className='app'>
           <img src={logo} className='logo' alt='logo' />
-          <h2 className='tittle'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
+          <h2 className='title'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
           <p className='instructions'>
-            Roll until all dice are the same.Click each die to freeze it <br />
+            Roll until all dice are the same. Click each die to freeze it <br />
             at its current value between rolls.
           </p>
-          <button className='app--button' onClick={clickHandler}>
+          <button className='app--button' onClick={() => setShowGame(true)}>
             Start Game
           </button>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

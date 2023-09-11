@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function Timer({ winTenzies, rollsCount, resetTimer }) {
+export default function Timer({
+  winTenzies,
+  rollsCount,
+  resetTimer,
+  isFailedGame,
+}) {
   const [time, setTime] = React.useState(0);
   const [topScore, setTopScore] = React.useState(
     JSON.parse(localStorage.getItem('topScore')) || { rolls: null, time: 0 }
@@ -9,15 +14,11 @@ export default function Timer({ winTenzies, rollsCount, resetTimer }) {
   React.useEffect(() => {
     if (winTenzies) {
       if (topScore.rolls === null) {
-        setTopScore((prevBest) => {
-          return { ...prevBest, rolls: rollsCount, time: time };
-        });
+        setTopScore({ rolls: rollsCount, time: time });
       }
 
       if (time < topScore.time) {
-        setTopScore((prevBest) => {
-          return { ...prevBest, rolls: rollsCount, time: time };
-        });
+        setTopScore({ rolls: rollsCount, time: time });
       }
     }
   }, [rollsCount, winTenzies, time, topScore.rolls, topScore.time]);
@@ -34,13 +35,13 @@ export default function Timer({ winTenzies, rollsCount, resetTimer }) {
 
   React.useEffect(() => {
     let intervalId;
-    if (!winTenzies) {
+    if (!winTenzies && !isFailedGame) {
       intervalId = setInterval(() => setTime(time + 1), 10);
     }
 
     return () => clearInterval(intervalId);
-  }, [winTenzies, time]);
-
+  }, [isFailedGame, time, winTenzies]);
+  console.log(time.toString().padStart(2, '0'));
   function formattedTime(time) {
     const minutes = Math.floor((time % 360000) / 6000)
       .toString()
