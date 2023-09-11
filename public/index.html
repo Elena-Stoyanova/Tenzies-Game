@@ -1,17 +1,94 @@
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./Browser-Logo.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tenzies Game</title>
-</head>
+  </head>
 
-<body>
-    <div id="root"></div>
-</body>
-
+  <body>
+    <svg
+      id="spinning-rays"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="0 50 50"
+          to="360 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="60 50 50"
+          to="420 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="120 50 50"
+          to="480 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="180 50 50"
+          to="540 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="240 50 50"
+          to="600 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+      <path d="M50,50l100,-26.7949l0,53.5898z">
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          type="rotate"
+          from="300 50 50"
+          to="660 50 50"
+          dur="60s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+    <div class="root" id="root"></div>
+  </body>
 </html>
