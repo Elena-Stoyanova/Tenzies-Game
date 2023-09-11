@@ -1,7 +1,7 @@
 import React from 'react';
-import Game from './Components/Game';
-import logo from './Images/App-logo.png';
-import Footer from './Components/Footer';
+import Game from './components/Game';
+import logo from './images/App-logo.png';
+import Footer from './components/Footer';
 
 export default function App() {
   const [showGame, setShowGame] = React.useState(false);

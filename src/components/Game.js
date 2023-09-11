@@ -3,7 +3,7 @@ import '../App.css';
 import Die from './Die';
 import Confetti from 'react-confetti';
 import Timer from './Timer';
-import logo from '../Images/Game-logo.png';
+import logo from '../images/Game-logo.png';
 import Popup from './Popup';
 import useWindowSize from '../useWindowSize';
 
