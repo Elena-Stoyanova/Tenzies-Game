@@ -8,7 +8,7 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 
 - [Overview](#overview)
   - [Instructions](#instructions)
-  - [Run Locally](#Run Locally)
+  - [Run Locally](#RunLocally)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
@@ -27,7 +27,7 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 Clone the project
 
 ```bash
-  git clone https://github.com/mirthepeer/tenzies
+  git clone
 ```
 
 Go to the project directory
