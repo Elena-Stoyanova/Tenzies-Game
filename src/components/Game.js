@@ -43,8 +43,14 @@ export default function Game() {
     return newDice;
   }
 
+  function startNewGame() {
+    setWinTenzies(false);
+    setRollsCount(0);
+    setDice(newGame());
+    setResetTimer(true);
+  }
+
   function rollDice() {
-    //freeze dice
     if (!winTenzies) {
       setResetTimer(false);
       setRollsCount((prevNum) => prevNum + 1);
@@ -54,11 +60,7 @@ export default function Game() {
         })
       );
     } else {
-      //new game
-      setWinTenzies(false);
-      setRollsCount(0);
-      setDice(newGame());
-      setResetTimer(true);
+      startNewGame();
     }
   }
 
