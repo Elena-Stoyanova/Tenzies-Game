@@ -27,7 +27,7 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 Clone the project
 
 ```bash
-  git clone
+  git clone https://github.com/Elena-Stoyanova/Tenzies-Game
 ```
 
 Go to the project directory
