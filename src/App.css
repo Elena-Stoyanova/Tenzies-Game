@@ -11,14 +11,13 @@ body {
   font-family: 'Karla', sans-serif;
 }
 
-#spinning-rays {
+.spinning-rays {
   position: fixed;
   top: 0;
   left: 0;
   margin: auto;
   width: 100%;
   height: 100vh;
-  fill: rgb(80, 53, 255);
   z-index: -1;
 }
 
