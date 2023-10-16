@@ -12,18 +12,29 @@
   position: relative;
   width: 350px;
   margin: 0 auto;
-  height: 200px;
-  margin-top: calc(100vh - 75vh - 20px);
-  background: #f8dcdc;
+  height: 210px;
+  margin-top: 30vh;
   border-radius: 8px;
   padding: 20px;
 }
-
-.warnning-text {
+#fail.box {
+  background-color: #f8dcdc;
+}
+#win.box {
+  background-color: #ffe79e;
+}
+.text {
   text-align: center;
+}
+#fail.text {
   color: #cc0000;
 }
-
+#win.text {
+  color: #4430c5;
+}
+#win p {
+  margin-top: -10px;
+}
 .popup-button {
   height: 30px;
   width: 100px;
@@ -35,17 +46,25 @@
   transform: translateY(-50%);
   border: none;
   border-radius: 6px;
-  background-color: #ff6666;
   color: white;
   font-size: 1.2rem;
   font-family: 'Karla', sans-serif;
   cursor: pointer;
 }
-
+#fail.popup-button {
+  background-color: #ff6666;
+}
+#win.popup-button {
+  background-color: #59e391;
+}
 .popup-button:hover {
   background-color: #59e391;
 }
-
+#win.popup-button:hover {
+  background-color: #9ddbb6;
+  border: 2px solid #59e391;
+  /* color: #59e391; */
+}
 .popup-button:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }

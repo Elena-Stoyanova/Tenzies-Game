@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import Die from './Die';
 import Confetti from 'react-confetti';
-import Timer from './Timer';
+import Stopwatch from './Stopwatch';
 import logo from '../images/Game-logo.png';
 import Popup from './Popup';
 import useWindowSize from '../useWindowSize';
@@ -11,8 +11,9 @@ export default function Game() {
   const [dice, setDice] = React.useState(newGame());
   const [winTenzies, setWinTenzies] = React.useState(false);
   const [rollsCount, setRollsCount] = React.useState(0);
-  const [resetTimer, setResetTimer] = React.useState(false);
-  const [isFailedGame, setIsFailedGame] = React.useState(false);
+  const [resetStopwatch, setResetStopwatch] = React.useState(false);
+  const [showFailPopup, setShowFailPopup] = React.useState(false);
+  const [showWinPopup, setShowWinPopup] = React.useState(false);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -21,9 +22,10 @@ export default function Game() {
 
     if (allHeld && allSameValue) {
       setWinTenzies(true);
+      setShowWinPopup(true);
     }
     if (allHeld && !allSameValue) {
-      setIsFailedGame(true);
+      setShowFailPopup(true);
     }
   }, [dice]);
 
@@ -47,12 +49,12 @@ export default function Game() {
     setWinTenzies(false);
     setRollsCount(0);
     setDice(newGame());
-    setResetTimer(true);
+    setResetStopwatch(true);
   }
 
   function rollDice() {
     if (!winTenzies) {
-      setResetTimer(false);
+      setResetStopwatch(false);
       setRollsCount((prevNum) => prevNum + 1);
       setDice((oldDice) =>
         oldDice.map((die) => {
@@ -88,17 +90,23 @@ export default function Game() {
       {winTenzies && <Confetti width={width} height={height} />}
       <img src={logo} className='game-logo' alt='logo' />
 
-      {isFailedGame && (
-        <Popup clickHandler={() => setIsFailedGame(!isFailedGame)} />
+      {showFailPopup && (
+        <Popup clickHandler={() => setShowFailPopup(!showFailPopup)} />
       )}
 
+      {showWinPopup && (
+        <Popup
+          winTenzies={winTenzies}
+          clickHandler={() => setShowWinPopup(!showWinPopup)}
+        />
+      )}
       <div className='dice-container'>{diceElements}</div>
 
-      <Timer
+      <Stopwatch
         winTenzies={winTenzies}
-        resetTimer={resetTimer}
+        resetStopwatch={resetStopwatch}
         rollsCount={rollsCount}
-        isFailedGame={isFailedGame}
+        showFailPopup={showFailPopup}
       />
 
       <button className='roll-dice--button' onClick={rollDice}>
