@@ -85,21 +85,45 @@ export default function Game() {
 
   const { width, height } = useWindowSize();
 
+  function showPopup() {
+    if (showWinPopup) {
+      return (
+        <Popup
+          clickHandler={() => setShowWinPopup(!showWinPopup)}
+          className='win'
+          text={
+            <>
+              <h2 className='text win-title'>🎉 YOU WIN! 🎉</h2>
+              <h3 className='text win-subtitle'> Try to outdo yourself.</h3>
+            </>
+          }
+        />
+      );
+    }
+    if (showFailPopup) {
+      return (
+        <Popup
+          clickHandler={() => setShowFailPopup(!showFailPopup)}
+          backgroundColor='#ffe79e'
+          color='#4430c5'
+          className='fail'
+          text={
+            <h3 className='text fail-title'>
+              Please, check that all dice are of the same value!
+            </h3>
+          }
+        />
+      );
+    }
+  }
+
   return (
     <main className='main'>
       {winTenzies && <Confetti width={width} height={height} />}
       <img src={logo} className='game-logo' alt='logo' />
 
-      {showFailPopup && (
-        <Popup clickHandler={() => setShowFailPopup(!showFailPopup)} />
-      )}
+      {showPopup()}
 
-      {showWinPopup && (
-        <Popup
-          winTenzies={winTenzies}
-          clickHandler={() => setShowWinPopup(!showWinPopup)}
-        />
-      )}
       <div className='dice-container'>{diceElements}</div>
 
       <Stopwatch
