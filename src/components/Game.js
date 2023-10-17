@@ -5,6 +5,7 @@ import Confetti from 'react-confetti';
 import Stopwatch from './Stopwatch';
 import logo from '../images/Game-logo.png';
 import Popup from './Popup';
+import TopScore from './TopScore';
 import useWindowSize from '../useWindowSize';
 
 export default function Game() {
@@ -14,6 +15,7 @@ export default function Game() {
   const [resetStopwatch, setResetStopwatch] = React.useState(false);
   const [showFailPopup, setShowFailPopup] = React.useState(false);
   const [showWinPopup, setShowWinPopup] = React.useState(false);
+  const [stopwatchTime, setStopwatchTime] = React.useState(0);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -45,6 +47,23 @@ export default function Game() {
     return newDice;
   }
 
+  function holdDice(id) {
+    setDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+      })
+    );
+  }
+
+  const diceElements = dice.map((die) => (
+    <Die
+      key={die.id}
+      value={die.value}
+      isHeld={die.isHeld}
+      holdDice={() => holdDice(die.id)}
+    />
+  ));
+
   function startNewGame() {
     setWinTenzies(false);
     setRollsCount(0);
@@ -65,25 +84,6 @@ export default function Game() {
       startNewGame();
     }
   }
-
-  function holdDice(id) {
-    setDice((oldDice) =>
-      oldDice.map((die) => {
-        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
-      })
-    );
-  }
-
-  const diceElements = dice.map((die) => (
-    <Die
-      key={die.id}
-      value={die.value}
-      isHeld={die.isHeld}
-      holdDice={() => holdDice(die.id)}
-    />
-  ));
-
-  const { width, height } = useWindowSize();
 
   function showPopup() {
     if (showWinPopup) {
@@ -117,6 +117,8 @@ export default function Game() {
     }
   }
 
+  const { width, height } = useWindowSize();
+
   return (
     <main className='main'>
       {winTenzies && <Confetti width={width} height={height} />}
@@ -126,11 +128,21 @@ export default function Game() {
 
       <div className='dice-container'>{diceElements}</div>
 
-      <Stopwatch
+      <div className='time-container'>
+        <Stopwatch
+          stop={winTenzies}
+          reset={resetStopwatch}
+          pause={showFailPopup}
+          getStopwatchTime={(time) => setStopwatchTime(time)}
+        />
+        <h3 className='rolls'>Rolls: {rollsCount}</h3>
+      </div>
+
+      <TopScore
         winTenzies={winTenzies}
         resetStopwatch={resetStopwatch}
         rollsCount={rollsCount}
-        showFailPopup={showFailPopup}
+        elapsedTime={stopwatchTime}
       />
 
       <button className='roll-dice--button' onClick={rollDice}>

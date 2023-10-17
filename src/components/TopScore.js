@@ -8,11 +8,9 @@ export default function TopScore({ winTenzies, rollsCount, elapsedTime }) {
 
   React.useEffect(() => {
     if (winTenzies) {
-      setTimeout(() => {
-        if (topScore.rolls === null) {
-          setTopScore({ rolls: rollsCount, time: elapsedTime });
-        }
-      }, 10);
+      if (topScore.rolls === null) {
+        setTopScore({ rolls: rollsCount, time: elapsedTime });
+      }
 
       if (elapsedTime < topScore.time) {
         setTopScore({ rolls: rollsCount, time: elapsedTime });

@@ -1,58 +1,40 @@
 import React from 'react';
 import useFormatTime from '../useFormatTime';
-import TopScore from './TopScore';
 
-export default function Stopwatch({
-  winTenzies,
-  rollsCount,
-  resetStopwatch,
-  showFailPopup,
-}) {
+export default function Stopwatch({ stop, reset, pause, getStopwatchTime }) {
   const [elapsedTime, setElapsedTime] = React.useState(0);
-  const [failTime, setFailTime] = React.useState(0);
+  const [pauseTime, setPauseTime] = React.useState(0);
   const [startTime, setStartTime] = React.useState(Date.now());
 
   React.useEffect(() => {
-    if (resetStopwatch) {
-      setFailTime(0);
+    if (reset) {
+      setPauseTime(0);
       setStartTime(Date.now());
     }
-  }, [resetStopwatch]);
+  }, [reset]);
 
   React.useEffect(() => {
     let intervalId;
 
-    if (!winTenzies) {
+    if (!stop) {
       intervalId = setInterval(() => {
         const elapsedTimeFromStart = Date.now() - startTime;
         const lastElapsedTime = elapsedTime;
 
-        if (showFailPopup) {
-          setFailTime(elapsedTimeFromStart - lastElapsedTime);
+        if (pause) {
+          setPauseTime(elapsedTimeFromStart - lastElapsedTime);
           return;
         }
 
-        setElapsedTime(elapsedTimeFromStart - failTime);
+        setElapsedTime(elapsedTimeFromStart - pauseTime);
       }, 10);
     }
 
     return () => clearInterval(intervalId);
-  }, [showFailPopup, elapsedTime, winTenzies, startTime, failTime]);
+  }, [pause, elapsedTime, stop, startTime, pauseTime]);
 
   const time = useFormatTime(elapsedTime);
+  getStopwatchTime(elapsedTime);
 
-  return (
-    <>
-      <div className='time-container'>
-        <h3 className='time'>Time: {time}</h3>
-        <h3 className='rolls'>Rolls: {rollsCount}</h3>
-      </div>
-      <TopScore
-        winTenzies={winTenzies}
-        resetStopwatch={resetStopwatch}
-        rollsCount={rollsCount}
-        elapsedTime={elapsedTime}
-      />
-    </>
-  );
+  return <h3 className='time'>Time: {time}</h3>;
 }
