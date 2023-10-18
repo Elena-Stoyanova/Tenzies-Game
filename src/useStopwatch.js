@@ -1,7 +1,6 @@
 import React from 'react';
-import useFormatTime from '../useFormatTime';
 
-export default function Stopwatch({ stop, reset, pause, getStopwatchTime }) {
+export default function useStopwatch(start, reset, pause) {
   const [elapsedTime, setElapsedTime] = React.useState(0);
   const [pauseTime, setPauseTime] = React.useState(0);
   const [startTime, setStartTime] = React.useState(Date.now());
@@ -16,7 +15,7 @@ export default function Stopwatch({ stop, reset, pause, getStopwatchTime }) {
   React.useEffect(() => {
     let intervalId;
 
-    if (!stop) {
+    if (start) {
       intervalId = setInterval(() => {
         const elapsedTimeFromStart = Date.now() - startTime;
         const lastElapsedTime = elapsedTime;
@@ -31,10 +30,7 @@ export default function Stopwatch({ stop, reset, pause, getStopwatchTime }) {
     }
 
     return () => clearInterval(intervalId);
-  }, [pause, elapsedTime, stop, startTime, pauseTime]);
+  }, [pause, elapsedTime, start, startTime, pauseTime]);
 
-  const time = useFormatTime(elapsedTime);
-  getStopwatchTime(elapsedTime);
-
-  return <h3 className='time'>Time: {time}</h3>;
+  return elapsedTime;
 }

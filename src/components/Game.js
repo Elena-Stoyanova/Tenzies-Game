@@ -2,11 +2,12 @@ import React from 'react';
 import '../App.css';
 import Die from './Die';
 import Confetti from 'react-confetti';
-import Stopwatch from './Stopwatch';
 import logo from '../images/Game-logo.png';
 import Popup from './Popup';
 import TopScore from './TopScore';
 import useWindowSize from '../useWindowSize';
+import useFormatTime from '../useFormatTime';
+import useStopwatch from '../useStopwatch';
 
 export default function Game() {
   const [dice, setDice] = React.useState(newGame());
@@ -15,7 +16,6 @@ export default function Game() {
   const [resetStopwatch, setResetStopwatch] = React.useState(false);
   const [showFailPopup, setShowFailPopup] = React.useState(false);
   const [showWinPopup, setShowWinPopup] = React.useState(false);
-  const [stopwatchTime, setStopwatchTime] = React.useState(0);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -104,8 +104,6 @@ export default function Game() {
       return (
         <Popup
           clickHandler={() => setShowFailPopup(!showFailPopup)}
-          backgroundColor='#ffe79e'
-          color='#4430c5'
           className='fail'
           text={
             <h3 className='text fail-title'>
@@ -118,6 +116,8 @@ export default function Game() {
   }
 
   const { width, height } = useWindowSize();
+  const elapsedTime = useStopwatch(!winTenzies, resetStopwatch, showFailPopup);
+  const time = useFormatTime(elapsedTime);
 
   return (
     <main className='main'>
@@ -129,12 +129,7 @@ export default function Game() {
       <div className='dice-container'>{diceElements}</div>
 
       <div className='time-container'>
-        <Stopwatch
-          stop={winTenzies}
-          reset={resetStopwatch}
-          pause={showFailPopup}
-          getStopwatchTime={(time) => setStopwatchTime(time)}
-        />
+        <h3 className='time'>Time: {time}</h3>
         <h3 className='rolls'>Rolls: {rollsCount}</h3>
       </div>
 
@@ -142,7 +137,7 @@ export default function Game() {
         winTenzies={winTenzies}
         resetStopwatch={resetStopwatch}
         rollsCount={rollsCount}
-        elapsedTime={stopwatchTime}
+        elapsedTime={elapsedTime}
       />
 
       <button className='roll-dice--button' onClick={rollDice}>
