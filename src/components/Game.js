@@ -2,20 +2,18 @@ import React from 'react';
 import '../App.css';
 import Die from './Die';
 import Confetti from 'react-confetti';
-import logo from '../images/Game-logo.png';
+import logo from '../images/App-logo.png';
 import Popup from './Popup';
-import TopScore from './TopScore';
-import useWindowSize from '../useWindowSize';
-import useFormatTime from '../useFormatTime';
-import useStopwatch from '../useStopwatch';
+import useWindowSize from '../hooks/useWindowSize';
+import TimeAndScore from './TimeAndScore';
 
 export default function Game() {
-  const [dice, setDice] = React.useState(newGame());
+  const [dice, setDice] = React.useState(allNewDice());
   const [winTenzies, setWinTenzies] = React.useState(false);
   const [rollsCount, setRollsCount] = React.useState(0);
-  const [resetStopwatch, setResetStopwatch] = React.useState(false);
   const [showFailPopup, setShowFailPopup] = React.useState(false);
   const [showWinPopup, setShowWinPopup] = React.useState(false);
+  const [resetStopwatch, setResetStopwatch] = React.useState(false);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -39,7 +37,7 @@ export default function Game() {
     };
   }
 
-  function newGame() {
+  function allNewDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
       newDice.push(generateRandomDie());
@@ -67,7 +65,7 @@ export default function Game() {
   function startNewGame() {
     setWinTenzies(false);
     setRollsCount(0);
-    setDice(newGame());
+    setDice(allNewDice());
     setResetStopwatch(true);
   }
 
@@ -75,6 +73,7 @@ export default function Game() {
     if (!winTenzies) {
       setResetStopwatch(false);
       setRollsCount((prevNum) => prevNum + 1);
+
       setDice((oldDice) =>
         oldDice.map((die) => {
           return die.isHeld ? die : generateRandomDie();
@@ -94,7 +93,7 @@ export default function Game() {
           text={
             <>
               <h2 className='text win-title'>🎉 YOU WIN! 🎉</h2>
-              <h3 className='text win-subtitle'> Try to outdo yourself.</h3>
+              <p className='text win-subtitle'> Try to outdo yourself.</p>
             </>
           }
         />
@@ -106,9 +105,9 @@ export default function Game() {
           clickHandler={() => setShowFailPopup(!showFailPopup)}
           className='fail'
           text={
-            <h3 className='text fail-title'>
+            <p className='text fail-subtitle'>
               Please, check that all dice are of the same value!
-            </h3>
+            </p>
           }
         />
       );
@@ -116,11 +115,9 @@ export default function Game() {
   }
 
   const { width, height } = useWindowSize();
-  const elapsedTime = useStopwatch(!winTenzies, resetStopwatch, showFailPopup);
-  const time = useFormatTime(elapsedTime);
 
   return (
-    <main className='main'>
+    <main className='game-container container'>
       {winTenzies && <Confetti width={width} height={height} />}
       <img src={logo} className='game-logo' alt='logo' />
 
@@ -128,19 +125,14 @@ export default function Game() {
 
       <div className='dice-container'>{diceElements}</div>
 
-      <div className='time-container'>
-        <h3 className='time'>Time: {time}</h3>
-        <h3 className='rolls'>Rolls: {rollsCount}</h3>
-      </div>
-
-      <TopScore
+      <TimeAndScore
         winTenzies={winTenzies}
-        resetStopwatch={resetStopwatch}
         rollsCount={rollsCount}
-        elapsedTime={elapsedTime}
+        showFailPopup={showFailPopup}
+        resetStopwatch={resetStopwatch}
       />
 
-      <button className='roll-dice--button' onClick={rollDice}>
+      <button className='button game-button' onClick={rollDice}>
         {winTenzies ? 'New Game' : 'Roll'}
       </button>
     </main>
