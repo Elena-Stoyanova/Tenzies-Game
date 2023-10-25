@@ -1,13 +1,11 @@
 import React from 'react';
-import useFormatTime from '../useFormatTime';
+import useFormatTime from '../hooks/useFormatTime';
 
 export default function TopScore({ winTenzies, rollsCount, elapsedTime }) {
   const topScore = JSON.parse(localStorage.getItem('topScore')) || {
     rolls: null,
     time: 0,
   };
-
-  localStorage.clear();
 
   if (winTenzies) {
     if (topScore.rolls === null || elapsedTime < topScore.time) {

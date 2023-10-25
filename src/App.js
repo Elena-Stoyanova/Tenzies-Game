@@ -22,14 +22,15 @@ export default function App() {
   }
 
   return (
-    <div className='app'>
-      <img src={logo} className='logo' alt='logo' />
-      <h2 className='title'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
-      <p className='instructions'>
+    <div className='app--container container'>
+      <img src={logo} className='app--logo' alt='logo' />
+      <h2 className='app--title'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
+      <p className='app--instructions'>
         Roll until all dice are the same. Click each die to freeze it <br />
         at its current value between rolls.
       </p>
-      <button className='app--button' onClick={() => setShowGame(true)}>
+
+      <button className='app--button button' onClick={() => setShowGame(true)}>
         Start Game
       </button>
     </div>
