@@ -9,11 +9,14 @@
 }
 
 .box {
-  position: relative;
-  width: 350px;
-  margin: 0 auto;
-  height: 210px;
-  margin-top: 30vh;
+  display: flex;
+  width: 230px;
+  height: 30vh;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  margin-top: 27vh;
   border-radius: 8px;
   padding: 20px;
 }
@@ -30,34 +33,28 @@
   text-align: center;
 }
 
-.fail-title {
+.fail-subtitle {
   color: #cc0000;
 }
 
 .win-title {
+  font-size: 20px;
   color: #4430c5;
 }
 
 .win-subtitle {
-  margin-top: -10px;
   color: #6756d4;
 }
 
 .popup-button {
-  height: 30px;
-  width: 100px;
-  margin: 0;
-  position: absolute;
-  top: 75%;
-  left: 35%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  height: 5vh;
+  width: 40%;
+  margin-top: 20px;
   border: none;
   border-radius: 6px;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'Karla', sans-serif;
-  cursor: pointer;
 }
 
 .button-fail {

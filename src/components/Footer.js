@@ -9,7 +9,9 @@ export default function Footer() {
         target='_blank'
         rel='noreferrer noopener'
       >
-        <p id='name'>Made by Elena Stoyanova</p>
+        <p className='footer-name' id='name'>
+          Made by Elena Stoyanova
+        </p>
       </a>
     </footer>
   );
