@@ -143,8 +143,6 @@ body {
   }
 
   .button {
-    width: 55%;
-    height: 5vh;
     font-size: 13px;
   }
 
@@ -154,21 +152,12 @@ body {
 }
 
 @media screen and (min-width: 321px) and (max-width: 380px) {
-  .app--container {
-    height: 70vh;
-  }
-
   .app--title {
     font-size: 13px;
   }
 
   .app--instructions {
     font-size: 11px;
-  }
-
-  .button {
-    width: 50%;
-    height: 5vh;
   }
 }
 
@@ -212,8 +201,13 @@ body {
 }
 
 @media screen and (min-width: 381px) and (max-width: 420px) {
+  .game-logo {
+    width: 60%;
+  }
+
   .container {
     padding: 30px;
+    height: 60vh;
   }
 
   .dice-container {
@@ -256,5 +250,16 @@ body {
 @media screen and (min-width: 381px) and (max-width: 740px) {
   .footer-name {
     margin-left: 12%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    height: 60vh;
+  }
+
+  .button {
+    width: 45%;
+    height: 5vh;
   }
 }
