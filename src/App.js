@@ -29,7 +29,6 @@ export default function App() {
         Roll until all dice are the same. Click each die to freeze it <br />
         at its current value between rolls.
       </p>
-
       <button className='app--button button' onClick={() => setShowGame(true)}>
         Start Game
       </button>

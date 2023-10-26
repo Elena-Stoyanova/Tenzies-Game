@@ -1,14 +1,15 @@
 import React from 'react';
-import '../App.css';
-import Die from './Die';
-import Confetti from 'react-confetti';
 import logo from '../images/App-logo.png';
+import '../App.css';
+import Confetti from 'react-confetti';
+import Die from './Die';
 import Popup from './Popup';
-import useWindowSize from '../hooks/useWindowSize';
 import TimeAndScore from './TimeAndScore';
+import useWindowSize from '../hooks/useWindowSize';
+import uuid from 'react-uuid';
 
 export default function Game() {
-  const [dice, setDice] = React.useState(allNewDice());
+  const [dice, setDice] = React.useState(generateAllNewDice());
   const [winTenzies, setWinTenzies] = React.useState(false);
   const [rollsCount, setRollsCount] = React.useState(0);
   const [showFailPopup, setShowFailPopup] = React.useState(false);
@@ -24,6 +25,7 @@ export default function Game() {
       setWinTenzies(true);
       setShowWinPopup(true);
     }
+
     if (allHeld && !allSameValue) {
       setShowFailPopup(true);
     }
@@ -33,11 +35,11 @@ export default function Game() {
     return {
       value: Math.ceil(Math.random() * 6),
       isHeld: false,
-      id: Math.random(),
+      id: uuid(),
     };
   }
 
-  function allNewDice() {
+  function generateAllNewDice() {
     const newDice = [];
     for (let i = 0; i < 10; i++) {
       newDice.push(generateRandomDie());
@@ -65,7 +67,7 @@ export default function Game() {
   function startNewGame() {
     setWinTenzies(false);
     setRollsCount(0);
-    setDice(allNewDice());
+    setDice(generateAllNewDice());
     setResetStopwatch(true);
   }
 
@@ -84,9 +86,15 @@ export default function Game() {
     }
   }
 
-  function showPopup() {
-    if (showWinPopup) {
-      return (
+  const { width, height } = useWindowSize();
+
+  return (
+    <main className='game-container container'>
+      {winTenzies && <Confetti width={width} height={height} />}
+
+      <img src={logo} className='game-logo' alt='logo' />
+
+      {showWinPopup && (
         <Popup
           clickHandler={() => setShowWinPopup(!showWinPopup)}
           className='win'
@@ -97,10 +105,9 @@ export default function Game() {
             </>
           }
         />
-      );
-    }
-    if (showFailPopup) {
-      return (
+      )}
+
+      {showFailPopup && (
         <Popup
           clickHandler={() => setShowFailPopup(!showFailPopup)}
           className='fail'
@@ -110,18 +117,7 @@ export default function Game() {
             </p>
           }
         />
-      );
-    }
-  }
-
-  const { width, height } = useWindowSize();
-
-  return (
-    <main className='game-container container'>
-      {winTenzies && <Confetti width={width} height={height} />}
-      <img src={logo} className='game-logo' alt='logo' />
-
-      {showPopup()}
+      )}
 
       <div className='dice-container'>{diceElements}</div>
 
