@@ -10,6 +10,7 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
   - [Instructions](#instructions)
   - [Run Locally](#RunLocally)
 - [My process](#my-process)
+  - [Added features](#added-features)
   - [Built with](#built-with)
   - [Useful resources](#useful-resources)
 
@@ -50,16 +51,35 @@ Start the server
 
 ## My process
 
+### Added features
+
+- Stopwatch as a custom hook (build with setInterval() and Date.now())
+- Create timeAndScore component to prevent re render in Game.js
+- Dots are made instead of numbers for each die
+- API to take your IP adress
+- Custom logo (Figma is used)
+- Custom hook for window width and height (it was necessary for the React Confetti to be responsive)
+- Custom hook to format time
+- Create TopScore component where save your top score in local storage
+- SVG file for background
+- Popup
+- Footer which navigates to my github account
+
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
+- Java Script
 - [React](https://reactjs.org/) - JS library
 - React Confetti
 - React custom hooks
 - Geolocation API
+- Figma
+- setInterval
+- Date.now()
+- react-uuid
 
 ### Useful resources
 
