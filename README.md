@@ -2,7 +2,7 @@
 
 Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 
-👉 [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
+Click here: 👉  [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
 
 ## Table of contents
 
