@@ -71,7 +71,7 @@ Start the server
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Java Script
+- JavaScript
 - [React](https://reactjs.org/) - JS library
 - React Confetti
 - React custom hooks
