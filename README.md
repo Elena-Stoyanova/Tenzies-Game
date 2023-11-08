@@ -1,6 +1,6 @@
-# Dice City| React dice rolling game
+# Tenzies Game
 
-Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
+Made with React JS.
 
 Click here: 👉  [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
 
@@ -71,7 +71,7 @@ Start the server
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Java Script
+- JavaScript
 - [React](https://reactjs.org/) - JS library
 - React Confetti
 - React custom hooks
