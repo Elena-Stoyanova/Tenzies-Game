@@ -1,5 +1,5 @@
 # Tenzies Game
-It's a game where you have to have ten identical dice to win. With each roll, the dice you haven't pressed change! If your pressed dice differ, you must undo the holding die by clicking it again and rolling until they are all the same. After you win, your best score is saved to local storage.
+This is a game where you have to have ten identical dice to win. With each roll, the dice you haven't pressed change! If you press the wrong die, just click on it to deselect and roll it again. Once you win, your high score is saved to local storage.
 Made with React JS.
 
 Click here: 👉  [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
