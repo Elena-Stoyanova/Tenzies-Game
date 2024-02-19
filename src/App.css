@@ -21,22 +21,27 @@ body {
   z-index: -1;
 }
 
+.root {
+  max-width: 60%;
+}
+
 .container {
   background-color: #f5f5f5;
   height: 80vh;
-  width: 73%;
-  margin: auto;
   border-radius: 15px;
   padding: 30px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
-.app--logo {
+.app--logo-container {
   width: 75%;
-  margin-bottom: 10%;
+}
+
+.app--logo {
+  width: 100%;
 }
 
 .app--title {
@@ -49,8 +54,12 @@ body {
   font-size: 12px;
 }
 
-.game-logo {
+.game-logo-container {
   width: 40%;
+}
+
+.game-logo {
+  width: 100%;
 }
 
 .dice-container {
@@ -64,7 +73,7 @@ body {
 .score-stats {
   display: flex;
   flex-wrap: wrap;
-  align-content: space-between;
+  justify-content: space-between;
   gap: 15px;
 }
 
@@ -119,17 +128,117 @@ body {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
+footer {
+  margin-top: 20px;
+}
+
 .footer-link {
-  color: #0b2434;
+  color: #20125a;
 }
 
-.footer-name {
-  position: fixed;
-  margin-top: 18px;
-  margin-left: 7%;
+@media (max-width: 550px) {
+  .root {
+    width: 70%;
+  }
+
+  .app--container {
+    justify-content: space-evenly;
+  }
+
+  .app--title {
+    font-size: 13px;
+  }
+
+  .game-logo-container {
+    width: 50%;
+  }
+
+  .time,
+  .rolls {
+    font-size: 13px;
+  }
+
+  .top-rolls,
+  .top-time {
+    font-size: 11px;
+  }
+
+  .time-container {
+    gap: 10px;
+  }
+
+  .time {
+    width: 110px;
+  }
+
+  .rolls {
+    width: 50px;
+  }
+
+  .app--button {
+    width: 60%;
+  }
+
+  .game-button {
+    height: 5vh;
+    width: 45%;
+  }
+
+  .dice-container {
+    gap: 15px;
+    gap: 10px;
+    grid-template: auto auto / repeat(4, 1fr);
+  }
 }
 
-@media screen and (max-width: 320px) {
+@media (max-width: 440px) {
+  .container {
+    padding: 30px;
+    height: 75vh;
+  }
+
+  .time-container {
+    gap: 10px;
+  }
+
+  .app--title {
+    font-size: 11px;
+  }
+
+  .app--instructions {
+    font-size: 10px;
+  }
+
+  .app--button {
+    font-size: 11px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  .time,
+  .rolls,
+  .footer-name,
+  .score-heading {
+    font-size: 11px;
+  }
+
+  .time {
+    width: 92px;
+  }
+
+  .rolls {
+    width: 50px;
+  }
+
+  .top-rolls,
+  .top-time {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 350px) {
   .app--container {
     height: 60vh;
   }
@@ -142,117 +251,12 @@ body {
     font-size: 9px;
   }
 
+  .score-stats {
+    justify-content: center;
+    gap: 5px;
+  }
+
   .button {
     font-size: 13px;
-  }
-
-  .footer-name {
-    font-size: 11px;
-  }
-}
-
-@media screen and (min-width: 321px) and (max-width: 380px) {
-  .app--title {
-    font-size: 13px;
-  }
-
-  .app--instructions {
-    font-size: 11px;
-  }
-
-  .app--button {
-    width: 55%;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .container {
-    padding: 20px;
-  }
-
-  .game-logo {
-    width: 70%;
-  }
-
-  .dice-container {
-    gap: 10px;
-    grid-template: auto auto / repeat(4, 1fr);
-  }
-
-  .time,
-  .rolls,
-  .footer-name,
-  .score-heading {
-    font-size: 11px;
-  }
-
-  .time {
-    width: 100px;
-  }
-
-  .rolls {
-    width: 50px;
-  }
-
-  .top-rolls,
-  .top-time {
-    font-size: 10px;
-  }
-
-  .footer-name {
-    margin-left: 15%;
-  }
-}
-
-@media screen and (min-width: 381px) and (max-width: 420px) {
-  .game-logo {
-    width: 50%;
-  }
-
-  .container {
-    padding: 30px;
-    height: 75vh;
-  }
-
-  .dice-container {
-    gap: 15px;
-  }
-
-  .time-container {
-    gap: 10px;
-  }
-}
-
-@media screen and (min-width: 381px) and (max-width: 520px) {
-  .time,
-  .rolls {
-    font-size: 16px;
-  }
-
-  .top-rolls,
-  .top-time {
-    font-size: 13px;
-  }
-
-  .time {
-    width: 135px;
-  }
-
-  .rolls {
-    width: 70px;
-  }
-
-  .app--button {
-    width: 60%;
-  }
-  .game-button {
-    height: 5vh;
-    width: 45%;
-  }
-}
-
-@media screen and (min-width: 381px) and (max-width: 740px) {
-  .footer-name {
-    margin-left: 12%;
   }
 }

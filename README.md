@@ -1,8 +1,8 @@
-# Dice City| React dice rolling game
+# Tenzies Game
+This is a game where you have to have ten identical dice to win. With each roll, the dice you haven't pressed change! If you press the wrong die, just click on it to deselect and roll it again. Once you win, your high score is saved to local storage.
+Made with React JS.
 
-Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
-
-👉 [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
+Click here: 👉  [Tenzies-Game](https://elena-stoyanova-tenzies-game.netlify.app/)
 
 ## Table of contents
 
@@ -18,10 +18,10 @@ Dice city is a rolling and matching game called **Tenzies**. Made with React JS.
 
 ### Instructions
 
-- Roll untill the dice are the same.
+- Roll until the dice are the same.
 - Click each die to freeze it at its current value between rolls.
-- You can undo holding die by clicking/pressing it again.
-- Try to match the dice quickly with lowest amount of roll.
+- You can undo holding the die by clicking/pressing it again.
+- Try to match the dice quickly with the lowest amount of roll.
 
 ### Run Locally
 
@@ -54,16 +54,16 @@ Start the server
 ### Added features
 
 - Stopwatch as a custom hook (build with setInterval() and Date.now())
-- Create timeAndScore component to prevent re render in Game.js
+- Create timeAndScore component to prevent re-render in Game.js
 - Dots are made instead of numbers for each die
-- API to take your IP adress
+- API to take your IP address
 - Custom logo (Figma is used)
-- Custom hook for window width and height (it was necessary for the React Confetti to be responsive)
+- Custom hook for window width and height (the React Confetti needed to be responsive)
 - Custom hook to format time
-- Create TopScore component where save your top score in local storage
+- Create a TopScore component where save your top score in local storage
 - SVG file for background
 - Popup
-- Footer which navigates to my github account
+- Footer which navigates to my GitHub account
 
 ### Built with
 
@@ -71,7 +71,7 @@ Start the server
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- JavaScript
+- Java Script
 - [React](https://reactjs.org/) - JS library
 - React Confetti
 - React custom hooks

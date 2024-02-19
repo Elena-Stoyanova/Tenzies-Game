@@ -8,6 +8,7 @@ export default function useStopwatch(start, stop, reset) {
   React.useEffect(() => {
     if (reset) {
       setStartTime(Date.now());
+      setStopTime(0)
     }
   }, [reset]);
 
@@ -22,7 +23,7 @@ export default function useStopwatch(start, stop, reset) {
           setStopTime(elapsedTimeFromStart - elapsedTime);
           return;
         }
-
+       
         setElapsedTime(elapsedTimeFromStart - stopTime);
       }, 50);
     }

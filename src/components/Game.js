@@ -91,8 +91,10 @@ export default function Game() {
   return (
     <main className='game-container container'>
       {winTenzies && <Confetti width={width} height={height} />}
-
-      <img src={logo} className='game-logo' alt='logo' />
+      
+      <div className='game-logo-container'>
+        <img src={logo} className='game-logo' alt='logo' />
+      </div>
 
       {showWinPopup && (
         <Popup

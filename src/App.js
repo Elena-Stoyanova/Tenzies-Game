@@ -23,7 +23,9 @@ export default function App() {
 
   return (
     <div className='app--container container'>
+      <div className='app--logo-container'>
       <img src={logo} className='app--logo' alt='logo' />
+      </div>
       <h2 className='app--title'>🎉 Hello user {city && `from ${city}`}! 🎉</h2>
       <p className='app--instructions'>
         Roll until all dice are the same. Click each die to freeze it <br />
